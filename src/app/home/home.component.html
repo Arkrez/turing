@@ -1,8 +1,10 @@
 <div>
     <div class="header"></div>
     <div class="main-content-container">
+        <button onclick="submitChoice(true)"></button>
         <app-timer>
         </app-timer>
+        <button onclick="submitChoice(false)"></button>
         <app-messaging-window
         [user]="user"
         >

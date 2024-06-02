@@ -5,11 +5,11 @@ import { Observable } from 'rxjs';
 @Injectable({
     providedIn: 'root'
   })
-export class ScoreTrackerService {
+export class ScoreTrackingService {
     constructor(private http: HttpClient) {}
 
-    updateUserScore(hasWon: Boolean, user: User): Observable<any> { // Use the imported Message type here
+    updateUserScore(score: Number, user: User): Observable<any> { // Use the imported Message type here
         // implementation
-        return this.http.post('api/update_score?user_id=' + user.id + '?score=' + hasWon, null); // Add null as the body parameter
+        return this.http.post('api/update_score?user_id=' + user.id + '?score=' + score, null); // Add null as the body parameter
     }
 }
