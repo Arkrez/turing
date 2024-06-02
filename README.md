@@ -1,5 +1,5 @@
 <h1>Turing</h1>
-<p>This game was created by Devon Ross, it's based on </a href="https://en.wikipedia.org/wiki/Turing_test">the turing test</a></p>
+<p>This game was created by Devon Ross, it's based on <a href="https://en.wikipedia.org/wiki/Turing_test">the turing test</a></p>
 <h1>Objective</h1>
 <p>Turing is a <a href="https://en.wikipedia.org/wiki/Zero-sum_game">zero-sum game</a>- your objective is to determine if your opponent is a human or a computer while concealing your identity.</p>
 <h1>Rules</h1>
