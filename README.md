@@ -13,3 +13,5 @@
 <li>In Overtime if you guess incorrectly and your opponent guesses correctly, then you will lose 2 point and your opponent will gain 2 points</li>
 <li>In Overtime if you both guess correctly or incorrectly, then no points are gained or lost</li>
 </ul>
+<h1>Initial High Level Design (HLD)</h1>
+<img src="./resources/HLD.png"></img>
