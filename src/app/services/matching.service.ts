@@ -7,10 +7,10 @@ import { User } from "../models/User";
     providedIn: 'root'
 })
 export class MatchingService {
-  constructor(private http: HttpClient) {}
+  constructor() {}
 
-  findMatch(): Observable<User> {
-    return this.http.get<User>('api/find_match');
+  findMatch() {
+     ;
   }
 
 }

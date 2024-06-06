@@ -3,12 +3,20 @@ import { User } from '../models/User';
 import { MessagingService } from '../services/messaging.service';
 import { MatchingService } from '../services/matching.service';
 import { ScoreTrackingService } from '../services/score-tracker.service';
+import { TimerComponent } from './timer/timer.component';
+import { MessagingWindowComponent } from './messaging-window/messaging-window.component';
+import { CommonModule } from '@angular/common';
+import { Message, MessageBuilder } from '../models/Message';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [],
+  imports: [
+    CommonModule,
+    TimerComponent,
+    MessagingWindowComponent
+  ],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
   user: User = new User();
@@ -25,36 +33,24 @@ export class HomeComponent {
     this.opponent = new User();
   }
   submitChoice(isHuman : Boolean) {
-    this.messagingService.submitChoice(isHuman).subscribe((response) => {
-      if (response.status === 200) {
-        console.log("Choice submitted");
-      } else {
-        console.log("Error submitting choice");
-      }
-    });
+
   }
 
   findMatch() {
-    this.matchingService.findMatch().subscribe((response) => {
-      if (response) {
-        this.resetVariables();
-        this.opponent = response;
-        console.log("Match found");
-      } else {
-        console.log("Error finding match");
-      }
-    });
+    this.matchingService.findMatch();
   }
 
   updateScore() {
-    this.scoreTrackingService.updateUserScore(this.match_score, this.user).subscribe((response) => {
-      if (response.status === 200) {
-        this.score += this.match_score;
-        console.log("Score updated");
-      } else {
-        console.log("Error updating score");
-      }
-    });
+    this.scoreTrackingService.updateUserScore(this.match_score, this.user);
+  }
+
+  sendMessage(user_input: string) {
+    this.messagingService.sendMessage(
+      new MessageBuilder()
+      .setId(this.user.id!)
+      .setContent(user_input)
+      .build()
+    );
   }
 
 }
